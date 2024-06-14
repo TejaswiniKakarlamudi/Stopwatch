@@ -19,8 +19,19 @@ function Card() {
         }
         setStart(prevStart => !prevStart);
     };
-
    
+    const timeFormatter= (num) =>{
+        return num < 10 ? '0' + num : num;
+    };
+
+    
+    const setinterval = (time) => {
+
+        const seconds = time%60;
+        const minutes = Math.floor(time / 60);
+        return `${timeFormatter(minutes)} min : ${timeFormatter(seconds)} sec`;
+    };
+
     const handleReset = () => {
         clearInterval(intervalRef.current);
         setTime(0);
@@ -30,7 +41,7 @@ function Card() {
     return (
         <div className={styles.card}>
             <h1 className={styles.header}>Stopwatch</h1>
-            <h5 className={styles.headertime}>Time: {time} seconds</h5>
+            <h5 className={styles.headertime}>Time: {setinterval(time)} </h5>
             <div>
                 <button onClick={handleStart}>{start ? 'Stop' : 'Start'}</button>
                 <button onClick={handleReset}>Reset</button>
