@@ -27,12 +27,8 @@ function Card() {
     
     const setinterval = (time) => {
 
-        const seconds = time%59;
-        let minutes = 0;
-        if(time>=60){
-            minutes = Math.floor(time / 60);
-        }
-        
+        const seconds = time%60;
+        const minutes = Math.floor(time / 60);
         return `${minutes}:${timeFormatter(seconds)}`;
     };
 
