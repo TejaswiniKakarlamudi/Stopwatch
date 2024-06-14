@@ -29,7 +29,7 @@ function Card() {
 
         const seconds = time%60;
         const minutes = Math.floor(time / 60);
-        return `${timeFormatter(minutes)} min : ${timeFormatter(seconds)} sec`;
+        return `${minutes} : ${timeFormatter(seconds)}`;
     };
 
     const handleReset = () => {
